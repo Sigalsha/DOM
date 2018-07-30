@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <div id="container"></div>
+
+<script>
+    //each part is an exercise
+
+    var contr = document.getElementById("container");
+    contr.innerHTML = "New Content!";
+    var para = document.createElement("p");
+    document.getElementById("container").appendChild(para);
+    var textnode = document.createTextNode("Hello world!");
+    para.appendChild(textnode);
+
+
+    let btn = document.createElement("button");
+    let textBtn = document.createTextNode("click me!");
+    btn.appendChild(textBtn);
+    document.getElementById("container").appendChild(btn);  
+
+
+    let newP = document.createElement("p");
+    newP.innerHTML = "Hover me with your mouse and see what will happen!";
+    document.getElementById("container").appendChild(newP);
+    newP.onmouseover = function() {
+        newP.innerHTML = "You rock!!!";
+    }
+    newP.onmouseout = function() {
+        newP.innerHTML = "Hover me with your mouse and see what will happen!";
+    }
+    let newUl = document.createElement("ul");
+    document.getElementById("container").appendChild(newUl);
+    let newListItem = document.createElement("li");
+    newUl.appendChild(newListItem);
+    let liTextNode = document.createTextNode("new list item");
+    newListItem.appendChild(liTextNode);
+
+
+    /*let newAnchor = document.createElement("a");
+    let newAtrAnchor = document.createAttribute("href");
+    newAtrAnchor.value = "www.elevationacademy.co";
+    document.getElementById("container").appendChild(newAnchor);
+    newAnchor.attributes.setNamedItem(newAtrAnchor);
+    newAnchor.innerHTML = "elevation-academy";*/
+
+
+    let newAnchor = document.createElement("a");
+    contr.appendChild(newAnchor);
+    newAnchor.setAttribute("href", "www.elevationacademy.co");
+    newAnchor.innerHTML = "elevation-academy";
+
+
+    document.getElementById('container').style.backgroundColor = "aqua";
+
+    //INDIVIDUAL EXERCISE
+    btn.setAttribute("onclick", "buttonTwoClicks()");
+    
+    function firstLook() {
+        textBtn.nodeValue = "click again!";
+    }
+
+    function secondLook() {
+        textBtn.nodeValue = "click me!";
+    }
+
+    function buttonTwoClicks() {
+        if (textBtn.nodeValue === "click me!") {
+            firstLook();
+        } else if (textBtn.nodeValue === "click again!") {
+            console.log("click 2");
+            secondLook();
+        }    
+    }
+    //end of INDIVIDUAL EXERCISE
+
+</script>
+</body>
+</html>
+
+
